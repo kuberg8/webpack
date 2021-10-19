@@ -86,6 +86,11 @@ main {
   margin: 0 0 7px 17px;
 }
 
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .p {
   text-indent: 40px;
   margin: 0;
@@ -139,6 +144,7 @@ main {
 @media screen and (max-width: 414px) {
   iframe {
     height: 190px;
+    width: 100%;
     margin-bottom: 20px;
   }
 
