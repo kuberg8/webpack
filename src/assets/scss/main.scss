@@ -47,7 +47,7 @@ aside {
   ul {
     li {
       transition: background 0.2s;
-      
+
       &:hover {
         background: var(--bs-gray-300);
       }
@@ -69,6 +69,17 @@ aside {
     }
     100% {
       transform: translateX(0);
+      margin-right: 0;
+    }
+  }
+
+  @-webkit-keyframes aside {
+    0% {
+      -webkit-transform: translateX(-100%);
+      margin-right: -280px;
+    }
+    100% {
+      -webkit-transform: translateX(0);
       margin-right: 0;
     }
   }
@@ -130,6 +141,7 @@ img {
     left: 0;
     top: 64px;
     height: 100vh;
+    z-index: 1000;
   }
 
   body {

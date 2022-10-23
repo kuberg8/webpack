@@ -65,10 +65,12 @@ function asideOpen() {
 function asideClose() {
   if (aside.style.display !== "none") {
     aside.style.transform = "translateX(-100%)";
+    // aside.style.webkitTransform = "translateX(-100%)";
     aside.style.marginRight = "-280px";
     setTimeout(() => {
       aside.style.display = "none";
       aside.style.transform = "";
+      // aside.style.webkitTransform = "";
       aside.style.marginRight = "";
     }, 200);
   }

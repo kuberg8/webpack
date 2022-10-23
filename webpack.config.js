@@ -1,7 +1,7 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -75,14 +75,14 @@ module.exports = {
       template: "./public/index.html", // билдит основной html
     }),
     new CleanWebpackPlugin(), // отчищает dist/build папку
-    new CopyWebpackPlugin({
-      // копирует статические файлы типа иконки из publick в build
-      patterns: [
-        {
-          from: path.resolve(__dirname, "src/assets/App/AwesomeProject.zip"),
-          to: path.resolve(__dirname, "build"),
-        },
-      ],
-    }),
+    // new CopyWebpackPlugin({
+    //   // копирует статические файлы типа иконки из publick в build
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, "src/assets/AwesomeProject.zip"),
+    //       to: path.resolve(__dirname, "build"),
+    //     },
+    //   ],
+    // }),
   ],
 };
