@@ -12,6 +12,8 @@
   "author": "Aleksei Demidenko",
   "license": "ISC",
   "dependencies": {
+    "@codemirror/state": "^6.4.1",
+    "codemirror": "^6.0.1",
     "gh-pages": "^3.2.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
