@@ -1,1 +1,0 @@
-const CACHE_NAME="cool-cache";self.addEventListener("install",(e=>{e.waitUntil((async()=>{await caches.open(CACHE_NAME)})())})),self.addEventListener("activate",(e=>{e.waitUntil(clients.claim())})),self.addEventListener("fetch",(e=>{e.respondWith((async()=>{const t=await caches.open(CACHE_NAME),a=await t.match(e.request);return void 0!==a?a:fetch(e.request)}))}));
