@@ -35,10 +35,6 @@ function setPage() {
     }
   });
 
-  if (window.innerWidth <= 768 && aside.style.display !== "none") {
-    menuButton.click();
-  }
-
   ReactDOM.unmountComponentAtNode(main);
   switch (hash) {
     case "#Home":
@@ -59,6 +55,7 @@ function setPage() {
 }
 
 function asideOpen() {
+  aside.style.animation = "aside 0.2s"
   aside.style.display = "block";
 }
 

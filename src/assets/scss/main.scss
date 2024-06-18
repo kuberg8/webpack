@@ -37,7 +37,6 @@ header {
 
 aside {
   min-height: 100%;
-  animation: aside 0.2s;
   transition: all 0.2s;
 
   .dropdown {
@@ -137,6 +136,7 @@ img {
   }
 
   aside {
+    display: none;
     position: fixed;
     left: 0;
     top: 64px;
