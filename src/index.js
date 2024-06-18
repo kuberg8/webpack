@@ -19,6 +19,7 @@ const state = {
 // functions
 function setPage() {
   const asideLinks = aside.querySelectorAll("a");
+  if (window.innerWidth < 768) Array.from(asideLinks).forEach(elem => elem.addEventListener("click", asideClose))
   const hash = location.hash;
 
   if (!hash) {
