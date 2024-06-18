@@ -1,45 +1,50 @@
 import React from "react"
-import {basicSetup, EditorView} from "codemirror"
-import {EditorState} from "@codemirror/state"
-import {shortCircuit, uniqValue, palindrome} from "@/utils/tasks.js"
+import { basicSetup, EditorView } from "codemirror"
+import { EditorState } from "@codemirror/state"
+import { shortCircuit, uniqValue, palindrome, delayLoop, retry } from "@/utils/tasks.js"
 
 const createEditor = (id, doc) => {
   let state = EditorState.create({
     doc,
-    extensions: [
-      basicSetup,
-    ]
+    extensions: [basicSetup],
   })
-  
+
   new EditorView({
     state,
-    parent: document.getElementById(id)
+    parent: document.getElementById(id),
   })
+}
+
+const editors = {
+  "Замыкание": shortCircuit,
+  "Уникальное значение": uniqValue,
+  "Палиндром": palindrome,
+  "Цикл задержки": delayLoop,
+  "Retry": retry
 }
 
 function Code() {
   React.useEffect(() => {
-    console.log("React")
-
-    createEditor("editor", shortCircuit)
-    createEditor("editor2", uniqValue)
-    createEditor("editor3", palindrome)
+    for(let key in editors) {
+      createEditor(key, editors[key])
+    }
   }, [])
 
   return (
     <div className="py-4 container-md">
-      <h1 className="pb-5">Алгоритмы и структуры данных на JavaScript</h1>
+      <h1 className="pb-5">JavaScript</h1>
       <hr />
       <h1 className="pb-5">Задачи</h1>
 
-      <h4>Замыкание</h4>
-      <div id="editor" />
-      <br />
-      <h4>Уникальное значение</h4>
-      <div id="editor2" />
-      <br />
-      <h4>Палиндром</h4>
-      <div id="editor3" />
+      {Object.keys(editors).map((key) => {
+        return (
+          <p>
+            <h4>{key}</h4>
+            <div id={key} />
+            <br />
+          </p>
+        )
+      })}
     </div>
   )
 }
